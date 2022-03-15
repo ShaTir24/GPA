@@ -17,36 +17,18 @@ const auth = firebase.auth();
 var imageArray = [[1,2,3,4,5,6,7,8,9],
                  [11,12,13,14,15,16,17,18,19],
                  [21,22,23,24,25,26,27,28,29]];
-            var n=2; // no of varient
+            var n=3; // no of varient
             var array = [];
 
             function random() {
                 array = [];
+                const size = 9;
                 var ran = Math.floor((Math.random()*n));
                 // console.log(ran);
                 //select random images
-                var a0 = imageArray[ran][0];
-                var a1 = imageArray[ran][1];
-                var a2 = imageArray[ran][2];
-                var a3 = imageArray[ran][3];
-                var a4 = imageArray[ran][4];
-                var a5 = imageArray[ran][5];
-                var b0 = imageArray[ran][6];
-                var b1 = imageArray[ran][7];
-                var b2 = imageArray[ran][8];
-                // console.log(x);
-
-                
-                array.push(a0);
-                array.push(a1);
-                array.push(a2);
-                array.push(a3);
-                array.push(a4);
-                array.push(a5);
-                array.push(b0);
-                array.push(b1);
-                array.push(b2);
-                
+                for(let i = 0; i < size; i++) {
+                    array.push(imageArray[ran][i]);
+                }
                 //shuffle images
                 for(let i=array.length-1; i>0; i--) {
                     const j = Math.floor(Math.random() * (i+1));
