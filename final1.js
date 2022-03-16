@@ -23,10 +23,10 @@ var imageArray = [[1,2,3,4,5,6,7,8,9],
             function random() {
                 array = [];
                 const size = 9;
-                var ran = Math.floor((Math.random()*n));
-                // console.log(ran);
+                
                 //select random images
                 for(let i = 0; i < size; i++) {
+                    var ran = Math.floor((Math.random()*n));
                     array.push(imageArray[ran][i]);
                 }
                 //shuffle images
@@ -106,7 +106,7 @@ function signUp() {
     var setPassword = "";
 
     for(let i=0; i<pas.length; i++) {
-        setPassword = setPassword.concat(map1.get((array[pas[i].charCodeAt(0)-"a".charCodeAt(0)])%10)); 
+        setPassword += map1.get((array[pas[i].charCodeAt(0)-"a".charCodeAt(0)])%10); 
     }
     const promise = auth.createUserWithEmailAndPassword(username.value, setPassword);
     promise.catch(e => alert(e.message));
@@ -121,7 +121,7 @@ function signIn() {
     var setPassword = "";
 
     for(let i=0; i<pas.length; i++) {
-        setPassword += map1.get(array[pas[i].charCodeAt(0)-"a".charCodeAt(0)]); 
+        setPassword += map1.get((array[pas[i].charCodeAt(0)-"a".charCodeAt(0)])%10); 
     }
 
     const promise = auth.signInWithEmailAndPassword(username.value, setPassword);
